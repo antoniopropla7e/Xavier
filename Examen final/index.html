@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafíos HTML & CSS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="tarjeta">
+        <h2>Xavier Lidueña</h2>
+        <p>Desarrollador Full Stack. Apasionado por el código limpio y el diseño UX.</p>
+    </div>
+
+    <br><hr>
+
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Portafolio</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <br><hr>
+
+    
+    <div class="layout-container">
+        <header>
+            <h2>Header de la Página</h2>
+        </header>
+
+        <main>
+            <h3>. Formulario de Contacto</h3>
+            <form class="formulario">
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div>
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" rows="5" required></textarea>
+                </div>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+            <p>El elemento *main* se estira para forzar al footer a estar siempre abajo (Sticky Footer).</p>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Layout con Sticky Footer | Hecho por Xavier Lidueña</p>
+        </footer>
+    </div>
+    
+    <br><hr>
+
+    
+    <h3>. Galería de Imágenes Responsive (3 columnas, 1 en móvil)</h3>
+
+    <div class="galeria">
+        <img src="https://via.placeholder.com/600x400/FF5733/FFFFFF?text=Foto+1" alt="Imagen 1">
+        <img src="https://via.placeholder.com/600x400/33FF57/FFFFFF?text=Foto+2" alt="Imagen 2">
+        <img src="https://via.placeholder.com/600x400/3357FF/FFFFFF?text=Foto+3" alt="Imagen 3">
+        <img src="https://via.placeholder.com/600x400/FF33A1/FFFFFF?text=Foto+4" alt="Imagen 4">
+        <img src="https://via.placeholder.com/600x400/33FFF6/FFFFFF?text=Foto+5" alt="Imagen 5">
+        <img src="https://via.placeholder.com/600x400/F3FF33/FFFFFF?text=Foto+6" alt="Imagen 6">
+    </div>
+
+</body>
+</html>

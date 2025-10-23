@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xavier | Portafolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body {
+      background-color: #0e0e11;
+      color: #f2f2f2;
+      line-height: 1.6;
+    }
+
+    body.light {
+      background-color: #f9f9f9;
+      color: #1a1a1a;
+    }
+
+    header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 20px 50px;
+      background: #0e0e11;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    body.light header {
+      background: #ffffff;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #cfcfcf;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    body.light nav a {
+      color: #333;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #a855f7;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid #a855f7;
+      color: #a855f7;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background: #a855f7;
+      color: #fff;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 100px 50px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      max-width: 500px;
+    }
+
+    .hero-text h3 {
+      font-weight: 400;
+      margin-bottom: 10px;
+      color: #b1b1b1;
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero-text span {
+      color: #a855f7;
+    }
+
+    .hero-text h2 {
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .hero-text p {
+      color: #bdbdbd;
+      margin-bottom: 25px;
+    }
+
+    .hero-text button {
+      background: #a855f7;
+      border: none;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: 0.3s;
+    }
+
+    .hero-text button:hover {
+      background: #8b5cf6;
+    }
+
+    .hero-img {
+      text-align: center;
+    }
+
+    .hero-img img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #a855f7;
+      padding: 8px;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+    }
+
+    section {
+      padding: 80px 50px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .section-title span {
+      color: #a855f7;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .services-grid,
+    .portfolio-grid,
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card,
+    .review-card {
+      background: #18181c;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: left;
+      transition: 0.3s;
+    }
+
+    body.light .service-card,
+    body.light .review-card {
+      background: #f0f0f0;
+    }
+
+    .service-card:hover,
+    .review-card:hover {
+      transform: translateY(-8px);
+      border: 1px solid #a855f7;
+    }
+
+    .portfolio-grid img {
+      width: 100%;
+      border-radius: 15px;
+      transition: transform 0.3s;
+    }
+
+    .portfolio-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .review-card h3 {
+      color: #a855f7;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    /* Contacto */
+    .contact-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #18181c;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.1);
+    }
+
+    body.light .contact-container {
+      background: #f0f0f0;
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.15);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #333;
+      border-radius: 10px;
+      background: #0e0e11;
+      color: #f2f2f2;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    body.light .contact-form input,
+    body.light .contact-form textarea {
+      background: #fff;
+      color: #1a1a1a;
+      border: 1px solid #ccc;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #a855f7;
+      box-shadow: 0 0 8px rgba(168, 85, 247, 0.4);
+    }
+
+    .contact-form button {
+      background: #a855f7;
+      color: #fff;
+      border: none;
+      padding: 14px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #8b5cf6;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #aaa;
+      font-size: 0.9rem;
+      border-top: 1px solid #222;
+    }
+
+    body.light footer {
+      color: #555;
+      border-top: 1px solid #ccc;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 15px 20px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 20px;
+      }
+
+      section {
+        padding: 50px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#" class="active">Inicio</a>
+      <a href="#services">Servicios</a>
+      <a href="#portfolio">Portafolio</a>
+      <a href="#reviews">Reseñas</a>
+      <a href="#contact">Contacto</a>
+      <button class="theme-toggle" id="theme-toggle">🌙 Tema</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h3>Hola, soy</h3>
+      <h1><span>Xavier</span></h1>
+      <h2>Diseñador UI/UX y Desarrollador Web</h2>
+      <p>Creo diseños modernos centrados en el usuario y experiencias web responsivas.</p>
+      <button>Contrátame</button>
+      <button style="background:none;border:1px solid #a855f7;">Portafolio</button>
+    </div>
+    <div class="hero-img">
+      <img src="20230415_183805.jpg" alt="Foto de Xavier" />
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="section-title">
+      <span>Servicios</span>
+      <h2>Lo que puedo hacer por ti</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Diseño UI/UX</h3>
+        <p>Más de 3 años creando interfaces modernas centradas en el usuario.</p>
+      </div>
+      <div class="service-card">
+        <h3>Desarrollo Web</h3>
+        <p>Construyo sitios web rápidos y adaptables para cualquier dispositivo.</p>
+      </div>
+      <div class="service-card">
+        <h3>Investigación & Análisis</h3>
+        <p>Transformo datos de usuario en decisiones de diseño efectivas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio" id="portfolio">
+    <div class="section-title">
+      <span>Portafolio</span>
+      <h2>Mis Proyectos</h2>
+    </div>
+    <div class="portfolio-grid">
+      <img src="proyecto1.jpg" alt="Proyecto 1">
+      <img src="proyecto2.jpg" alt="Proyecto 2">
+      <img src="proyecto3.jpg" alt="Proyecto 3">
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="section-title">
+      <span>Testimonios</span>
+      <h2>Lo que dicen sobre mí</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <p>“Trabajar con Xavier fue increíble. Su código es limpio, eficiente y siempre cumple los plazos.”</p>
+        <h3>- Juan Pérez</h3>
+      </div>
+      <div class="review-card">
+        <p>“Excelente desarrollador, muy profesional y creativo. Superó nuestras expectativas en todos los proyectos.”</p>
+        <h3>- Laura Gómez</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="section-title">
+      <span>Contáctame</span>
+      <h2>Envíame un mensaje</h2>
+    </div>
+    <div class="contact-container">
+      <form class="contact-form">
+        <input type="text" placeholder="Nombre completo" required>
+        <input type="email" placeholder="Correo electrónico" required>
+        <input type="tel" placeholder="Teléfono (opcional)">
+        <textarea placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
+        <button type="submit">Enviar Mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Xavier. Todos los derechos reservados. Maracaibo, Venezuela
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('light');
+      if(document.body.classList.contains('light')) {
+        toggle.textContent = '🌙 Tema';
+      } else {
+        toggle.textContent = '☀️ Tema';
+      }
+    });
+  </script>
+</body>
+</html>
